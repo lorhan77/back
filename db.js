@@ -16,17 +16,38 @@ async function connect() {
     return singleton;
 }
 
-const COLLECTION = "funcionarios";
  
-async function findAll() {
+async function findAll(COLLECTION) {
     const db = await connect();
     return db.collection(COLLECTION).find().toArray();
 }
 
-async function findOne(id) {
+async function insert(COLLECTION,DOC) {
+    
+    const db = await connect();
+    return db.collection(COLLECTION).insertOne(DOC);
+
+}
+
+async function deleteDb(COLLECTION,id) {
+    
+    const db = await connect();
+    return db.collection(COLLECTION).deleteOne({ _id: new ObjectId(id) });
+
+}
+
+
+async function findOne(COLLECTION,id) {
     
     const db = await connect();
     return db.collection(COLLECTION).findOne({ _id: new ObjectId(id) });
+}
+
+async function updateDb(COLLECTION,id, DOC) {
+    
+    const db = await connect();
+    delete DOC._id;
+    return db.collection(COLLECTION).updateOne({_id: new ObjectId(id)}, { $set: DOC});
 }
 
 async function findExpressao(filtro) {    
@@ -44,4 +65,4 @@ async function findExpressao(filtro) {
         
 }
  
-module.exports = { findAll, findOne, findExpressao } 
+module.exports = { findAll, findOne, findExpressao, insert, deleteDb, updateDb} 
