@@ -14,7 +14,9 @@ var Model = mongoose.model;
     {
      cpf : {type:Number, required: true},
      nome : {type:String, required: true},
-     cep: {type:Number, required: true}
+     cep: {type:Number, required: true},
+     tel: {type:Number, required: true},
+     email: {type:String, required: true}
     })
 
     const modelsClient = Model('clientes', clientes);

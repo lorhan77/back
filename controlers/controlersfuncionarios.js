@@ -19,9 +19,12 @@ exports.getoneFuncionario = async (req, res) => {
 
 exports.createFuncionario = async (req, res) => {
   const func = new Func.modelsFunc({
-    cpf : req.body.cpf,
-    nome: req.body.nome,
-    cep: req.body.cep
+    cpf   : req.body.cpf,
+    nome  : req.body.nome,
+    cep   : req.body.cep,
+    tel   : req.body.tel,
+    email : req.body.email,
+    funcao: req.body.funcao
   });
   try {
     const newFunc = await func.save();

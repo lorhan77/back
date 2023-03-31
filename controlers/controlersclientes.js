@@ -23,7 +23,9 @@ exports.createCliente = async (req, res) => {
   const clientes = new cliente.modelsClient({
     cpf: req.body.cpf,
     nome : req.body.nome,   
-    cep: req.body.cep
+    cep: req.body.cep,
+    tel: req.body.tel,
+    email: req.body.email
   });
   try {
     const newCliente = await clientes.save();

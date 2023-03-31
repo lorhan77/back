@@ -10,9 +10,12 @@ var Model = mongoose.model;
 
   var func = new Schema(
     {
-      cpf  : {type:Number, required: true},
-      nome : {type:String, required: true},
-      cep  : {type:Number, required: true}
+      cpf      : {type:Number, required: true},
+      nome     : {type:String, required: true},
+      cep      : {type:Number, required: true},
+      tel      : {type:Number, required: true},
+      email    : {type:String, required: true},
+      funcao   : {type:String, required: true},
     })
 
     const modelsFunc = Model('funcionarios', func);
