@@ -11,7 +11,7 @@ var usersRouter = require('./routes/users');
 var clientesRouter = require('./routes/rotaclientes');
 var funcRouter = require('./routes/rotafuncionarios');
 var salaRouter = require('./routes/rotassalas');
-
+var reservaRouter = require('./routes/rotareservas');
 
 
 var app = express();
@@ -39,6 +39,7 @@ app.use('/users', usersRouter);
 app.use('/apiclientes', clientesRouter);
 app.use('/apifuncionario', funcRouter);
 app.use('/apisala', salaRouter);
+app.use('/apireserva', reservaRouter);
 
 
 
